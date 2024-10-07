@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                "-std=c++17", // Use C++17 standard
+                "${workspaceFolder}/Game.cpp", // Path to your Game.cpp
+                "${workspaceFolder}/main.cpp", // Path to your main.cpp
+                "-I/opt/homebrew/include", // Include directory for SFML headers
+                "-L/opt/homebrew/lib", // Library directory for SFML
+                "-lsfml-graphics", // Link SFML Graphics library
+                "-lsfml-window", // Link SFML Window library
+                "-lsfml-system", // Link SFML System library
+                "-o", // Specify output file name
+                "${workspaceFolder}/SFMLApp", // Output file
+                "&&",
+                "${workspaceFolder}/SFMLApp" // Command to run the output file
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        }
+    ]
+}
